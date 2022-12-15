@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>George | Pushup Challenge</title>
+    <title>George | Pushup Calendar</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
   </head>
@@ -12,68 +12,31 @@
       <a href="https://7-george.github.io" target="_blank">
         <img src="george.png"> 
       </a>
-        <h1>Pushup <br> Challenge</h1>
-        <h3 id="statheader">Statistics</h3>
-        <p id="totalreps" class="stat">Start doing challenges to populate this.</p>
-        <p id="totalweightpushed" class="stat"></p>
-        <p id="suavg" class="stat"></p>
-        <p id="prmcpushupavg" class="stat"></p>
+        <h1>The Pushup <br> Calendar.</h1>
+        <h3 id="statheader">Your Effort</h3>
+        <p id="total-challenges" class="stat"></p>
       </div>
-    <div id="sub1" class="centre">
-      <h3>About You</h3>
-      <h4>Height <input id="ft" maxlength="1"> ft <input id="in" maxlength="2"> in</h4>
-      <h4>Weight <input id="kg" maxlength="3" > kg</h4> 
-      <p>Necessary for statistical calculations.</p>
-    </div>
 
-    <div id="sub2" class="centre">
-      <h3 class="subHeading">Pushups</h3>
-      <h4 id="pushupSectionLabel">Here is your daily challenge:</h4>
-      <div id="BringSallyUp" class="mini">
-        <h5>Bring Sally Up</h5>
-        <p class="miniText">Regular Pushups</p>
+    <div id="pushup-section" class="centre">
+      <h3 id="date">Daily Challenge</h3>
+      <h4 id="label">Today's challenge is:</h4>
+      <div id="challenge-container" class="mini">
+        <h5 id="challenge">Challenge</h5>
+        <p id="note" class="miniText"></p>
         <div class="miniSubContainer">
           <div class="audio-container">
-            <audio controls autoplay>
-              <source src="su.mp3" type="audio/mpeg">
+            <audio id="challenge-audio" controls autoplay>
+              <source id="challenge-audio-source" src="" type="audio/mpeg">
             Your browser does not support the audio element.
             </audio>
           </div>
-          <a href="http://moby.la/youtube-musicYo" target="_blank">
-            <p class="credit">All Credits To The Artist</p>
-          </a>
           <div class="submitBox">
-            <h4 class="miniSubText"><input id="SUmin" maxlength="1"> min <input id="SUsec" maxlength="2"> sec</h4>
-            <a href="javascript:void(0);" onclick="sallyUp()">
-              <h6>Submit</h6>
+            <a href="javascript:void(0);" onclick="submitReps()">
+              <h3>Finished</h3>
             </a>
           </div>
-          <p id="su-lbl" class="lbl"></p>
         </div>
       </div>
-
-      <div id="PrmcPushups" class="mini">
-        <h5>PRMC</h5>
-        <p class="miniText">Tricep Pushups</p>
-        <div class="miniSubContainer">
-          <div class="audio-container">
-            <audio controls autoplay>
-              <source src="prmc-pushup.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
-          </div>
-          <a href="https://youtu.be/u6e467XW0Sw" target="_blank">
-            <p class="credit">All Credits To The Creator</p>
-          </a>
-          <div class="submitBox">
-            <h4 class="miniSubText"><input id="prmc-pushup-reps" maxlength="2"> reps</h4>
-            <a href="javascript:void(0);" onclick="prmcPushups()">
-              <h6>Submit</h6>
-            </a>
-          </div>
-          <p id="prmc-pushups-lbl" class="lbl"></p>
-        </div>
-    </div>
 
     <script src="script.js"></script>
   </body>
