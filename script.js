@@ -59,13 +59,13 @@ function hideChallenge() {
 
     var dateSuffix = "th Of ";
     if (date == 1 || date == 21 || date == 31) {
-      dateSuffix = "st Of";
+      dateSuffix = "st Of ";
     }
     if (date == 2 || date == 22) {
-      dateSuffix = "st Of";
+      dateSuffix = "st Of ";
     }
     if (date == 3 || date == 23) {
-      dateSuffix = "rd Of";
+      dateSuffix = "rd Of ";
     }
 
     dateLabel.textContent = date + dateSuffix + month;  
