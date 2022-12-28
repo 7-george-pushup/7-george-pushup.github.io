@@ -18,11 +18,12 @@
             <h2 id="notice">Click the timer to start, and again upon failure.</h2>
         </div>
     
-        <a id="start" onclick="start()">
-            <h1 id="stopwatch">Start</h1>
-        </a>
+        <h1 id="stopwatch">0:00</h1>
     
         <div id="stats">
+            <audio id="playAudio" onplay="updateStats()" controls>
+                <source src="" type="audio/mp3">
+            </audio>
             <div id="percentage-container">
                 <div id="client" class="percentage">You</div>
                 <div id="point0001" class="X percentage">Top .0001% Of People</div>

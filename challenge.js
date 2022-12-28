@@ -39,47 +39,13 @@ if (!(challengeID[0] === 'd')) {
 titleName.textContent = challengeName;
 titleForm.textContent = "With " + noPluralForm + " form.";
 
-//========= Start Button
-var audio = new Audio("./Audio/" + challengeName + ".mp3");
-setTimeout(() => {
-    var start = document.getElementById('start');
-    start.href = "javascript:;";
-}, "2000")
-
-//========= Start Clicked
-function start() {
-    if (JSON.parse(sessionStorage.getItem("active")) === false) {
-        timer.textContent = "3"
-        setTimeout(() => {
-            timer.textContent = "2"
-            setTimeout(() => {
-                timer.textContent = "1"
-                setTimeout(() => {
-                    sessionStorage.setItem("active", true);
-                    audio.play();
-                    updateStats();
-                }, "1000")
-            }, "1000")
-        }, "1000")
-    } else {
-        audio.pause();
-        titleName.textContent = "Endurance Training";
-        titleForm.textContent = "Session Finished."
-        notice.textContent = "Here are your results:"
-    }
-}
+var audio = document.getElementById("playAudio");
+audio.setAttribute('src', "./Audio/" + challengeName + ".mp3");
 
 function updateStats() {
 
     //Challenge Completed
     var time = audio.currentTime;
-    if (parseInt(time) == parseInt(audio.duration)) {
-        audio.pause();
-        titleName.textContent = "Endurance Training";
-        titleForm.textContent = "You completed the entire challenge."
-        notice.textContent = "And one of very few to do so."
-        return;
-    }
 
     //Update Timer Text
     var minutes = Math.floor(time / 60);
