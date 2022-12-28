@@ -1,84 +1,113 @@
+sessionStorage.setItem("active", false);
+
+//=============== Set Date
 const today = new Date();
 var date = today.getDate();
 const dateID = date + today.getMonth() + today.getFullYear();
 
-//================= Random Note
-const note = document.getElementById('note');
-const notes = ["Make every rep as clean as possible.", "Spread your fingers out more.", "Control your breathing.", "Do not bounce off tendons.", "Practice downward holds to stay in control longer.", "Keep your hands just past shoulder width.", "Avoid resting/relying on joints."];
-var rand = Math.floor(Math.random() * 8) - 1;
-note.textContent = notes[rand];
+const titleDate = document.getElementById('title-date');
+const titleYear = document.getElementById('title-year');
 
-//================= Statistics
-const totalChallenges = document.getElementById('total-challenges');
+const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+let month = months[today.getMonth()];
+const year = " " + today.getFullYear();
 
-updateStatistics();
-function updateStatistics() {
-  if (!(localStorage.getItem("total-challenges") === null)) {
-    if (JSON.parse(localStorage.getItem("total-challenges")) === 1) {
-      totalChallenges.textContent = "You've only completed a single challenge so far...";
-    } else {
-      totalChallenges.textContent = "You have completed " + JSON.parse(localStorage.getItem("total-challenges")) + " challenges.";
-    }
-  } else {
-    totalChallenges.textContent = "You have not completed any challenges yet.";
+var dateSuffix = "th Of ";
+if (date == 1 || date == 21 || date == 31) {
+  dateSuffix = "st Of ";
+}
+if (date == 2 || date == 22) {
+  dateSuffix = "st Of ";
+}
+if (date == 3 || date == 23) {
+  dateSuffix = "rd Of ";
+}
+titleDate.textContent = date + dateSuffix + month + year;  
+
+//=============== Generate Challenges
+let challenges;
+
+challenges = [
+  ["Bring Sally Up", "Regular Pushups", "a1", 4, 20, 35, 50, 70, "All credits to the artist."],
+  ["Royal Marine Pushups", "Strict Tricep Pushups", "a2", 7, 30, 60, 100, 100, "All credits to Sean Lerwill of PRMC."],
+  ["Exhaustion", "Strict Tricep Pushups", "a3", 10, 30, 50, 65, 80, "Try my other projects at 7-george.github.io"],
+  ["Bring Sally Up", "Regular Pullups", "b3", 1, 7, 20, 40, 60, "All credits to the artist."],
+  ["Royal Marine Pullups", "Strict Pullups", "b1", 7, 40, 70, 100, 100, "All credits to Sean Lerwill of PRMC."],
+  ["Bring Sally Up", "Half Muscle Ups", "c1", 1, 3, 7, 20, 40, "All credits to the artist."],
+  ["Eternal Hang", "Dead Hang", "d1", 2, 15, 20, 40, 60, "Try my other projects at 7-george.github.io"]
+];
+
+for (let i = 0; i < challenges.length; i++) {
+  var title = document.createElement("h3");
+  title.textContent = challenges[i][0];
+  var subtitle = document.createElement("h4");
+  subtitle.textContent = challenges[i][1];
+
+  var element = document.createElement("a");
+  element.appendChild(title);
+  element.appendChild(subtitle);
+  element.className = "challenge";
+  element.id = challenges[i][2][0];
+  element.href = "challenge.html";
+
+  if (challenges[i][2][0] == "a") {
+    document.getElementById('pushup-challenges').appendChild(element);
+  }
+  if (challenges[i][2][0] == "b") {
+    document.getElementById('pullup-challenges').appendChild(element);
+  }
+  if (challenges[i][2][0] == "c") {
+    document.getElementById('muscleover-challenges').appendChild(element);
+  }
+  if (challenges[i][2][0] == "d") {
+    document.getElementById('hanging-challenges').appendChild(element);
   }
 }
 
+//=============== Challenge Selected
+var allChallenges = document.getElementsByClassName("challenge");
 
-//================= Hide Challenge After Completion
-hideChallenge();
-function hideChallenge() {
-  if (localStorage.getItem("last-challenge") == dateID) {
-    document.getElementById("challenge-container").remove();
-    document.getElementById("label").textContent = "Next challenge unlocks tomorrow.";
-    var remainingHours = 23 - today.getHours();
-    const pushupSectionLabel = document.getElementById('date');
-    pushupSectionLabel.textContent = remainingHours + " Hours Remaining.";
-    updateStatistics();
-  } else {
+var activate = function() {
 
-    //================ Set A Challenge
-    const challenges = ["Bring Sally Up","Pushup Torture","Rep Sprint","Refrain Pushups", "5 Minute Killer", "Deception", "Pushup Torture", "Refrain Pushups", "PRMC Pushup Test", "Rep Sprint", "Pushup Torture", "Bring Sally Up", "Deception", "Rep Sprint", "Refrain Pushups", "5 Minute Killer", "Deception", "Pushup Torture", "Rep Sprint", "Bring Sally Up", "Refrain Pushups", "PRMC Pushup Test", "Bring Sally Up", "Pushup Torture", "Rep Sprint", "Refrain Pushups", "Pushup Torture", "Bring Sally Up", "Rep Sprint", "Deception", "5 Minute Killer"];
-    var selectChallenge = date - 1;
+  var name = this.getElementsByTagName('h3')[0].textContent;
+  var form = this.getElementsByTagName('h4')[0].textContent;
+  var challengeID;
 
-    const challengeText = document.getElementById('challenge');
-    challengeText.textContent = challenges[selectChallenge];
+  var avgPercent;
+  var top5;
+  var top1;
+  var point001;
+  var point0001;
 
-    var audio = document.getElementById('challenge-audio');
-
-    var source = document.getElementById('challenge-audio-source');
-    source.src = challenges[selectChallenge] + ".mp3";
-
-    audio.load();
-
-    //=============== Set Date
-    const dateLabel = document.getElementById('date');
-
-    const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    let month = months[today.getMonth()];
-
-    var dateSuffix = "th Of ";
-    if (date == 1 || date == 21 || date == 31) {
-      dateSuffix = "st Of ";
+  for (let i = 0; i < challenges.length; i++) {
+    if (name === challenges[i][0]) {
+      if (form === challenges[i][1]) {
+        challengeID = challenges[i][2];
+        avgPercent = challenges[i][3];
+        top5 = challenges[i][4];
+        top1 = challenges[i][5];
+        point001 = challenges[i][6];
+        point0001 = challenges[i][7];
+        credit = challenges[i][8];
+      }
     }
-    if (date == 2 || date == 22) {
-      dateSuffix = "st Of ";
-    }
-    if (date == 3 || date == 23) {
-      dateSuffix = "rd Of ";
-    }
-
-    dateLabel.textContent = date + dateSuffix + month;  
   }
+
+  sessionStorage.setItem("id", challengeID);
+  sessionStorage.setItem("name", name);
+  sessionStorage.setItem("form", form);
+  sessionStorage.setItem("credit", credit);
+  sessionStorage.setItem("indexRedirected", true);
+
+  sessionStorage.setItem("avg-percent", avgPercent);
+  sessionStorage.setItem("top5", top5);
+  sessionStorage.setItem("top1", top1);
+  sessionStorage.setItem("point001", point001);
+  sessionStorage.setItem("point0001", point0001);
+
+};
+
+for (var i = 0; i < allChallenges.length; i++) {
+  allChallenges[i].addEventListener('click', activate, false);
 }
 
-//======================== Submit Reps
-function submitReps() {
-  var newCTotal = 1;
-  if (!(localStorage.getItem("total-challenges") === null)) {
-    newCTotal = newCTotal + parseInt(JSON.parse(localStorage.getItem("total-challenges")));
-  }
-  localStorage.setItem("total-challenges", newCTotal);
-  localStorage.setItem("last-challenge", dateID);
-  hideChallenge();
-}

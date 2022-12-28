@@ -1,43 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html onclick="stop()" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>George | Pushup Calendar</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="mobile.css">
+    <title>George | Endurance</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+    <link rel="stylesheet" href="./CSS/difficulty-styles.css">
+    <link rel="stylesheet" href="./CSS/thumbnail-gradients.css">
   </head>
   <body>
+
       <div id="headBlock">
-      <a href="https://7-george.github.io" target="_blank">
-        <img src="george.png"> 
-      </a>
-        <h1>The Pushup <br> Calendar.</h1>
-        <h3 id="statheader">Your Effort</h3>
-        <p id="total-challenges" class="stat"></p>
+        <h1 id="title">Endurance Training</h1>
+        <a href="https://7-george.github.io" target="_blank">
+          <h2 id="subtitle">Created by<img src="./Images/george.png" id="logo"></h2>
+        </a>
       </div>
 
-    <div id="pushup-section" class="centre">
-      <h3 id="date">Daily Challenge</h3>
-      <h4 id="label">Today's challenge is:</h4>
-      <div id="challenge-container" class="mini">
-        <h5 id="challenge">Challenge</h5>
-        <p id="note" class="miniText"></p>
-        <div class="miniSubContainer">
-          <div class="audio-container">
-            <audio id="challenge-audio" controls autoplay>
-              <source id="challenge-audio-source" src="" type="audio/mpeg">
-            Your browser does not support the audio element.
-            </audio>
-          </div>
-          <div class="submitBox">
-            <a href="javascript:void(0);" onclick="submitReps()">
-              <h3>Finished</h3>
-            </a>
-          </div>
-        </div>
+      <div id="headBlockFoot">
+        <h2 id="title-date">Loading Date...</h2>
       </div>
 
+      <div id="stat-panel">
+        <p id="welcome-msg">A collection of endurance challenges.</p>
+      </div>
+    
+      <h2 class="section-title">Pushups</h2>
+      <div id="pushup-challenges" class="wrapper"></div>
+      <h2 class="section-title">Pullups</h2>
+      <div id="pullup-challenges" class="wrapper"></div>
+      <h2 class="section-title">Muscle Over</h2>
+      <p class="section-sub">Muscle-Ups without the dip.</p>
+      <div id="muscleover-challenges" class="wrapper"></div>
+      <h2 class="section-title">Hanging</h2>
+      <div id="hanging-challenges" class="wrapper"></div>
     <script src="script.js"></script>
   </body>
 </html>

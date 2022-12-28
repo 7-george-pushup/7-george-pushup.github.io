@@ -1,0 +1,20 @@
+#a {
+    background: rgb(30,159,172);
+    background: radial-gradient(circle, rgba(30,159,172,1) 0%, rgba(32,109,149,1) 52%, rgba(0,138,255,1) 78%);
+}
+
+#b {
+    background: rgb(40,163,105);
+    background: radial-gradient(circle, rgba(40,163,105,1) 0%, rgba(0,99,106,1) 52%, rgba(0,81,89,1) 78%);
+}
+
+#c {
+    background: rgb(255,0,74);
+    background: radial-gradient(circle, rgba(255,0,74,1) 0%, rgba(149,32,32,1) 52%, rgba(255,0,108,1) 78%);
+}
+
+#d {
+    background: rgb(143,90,212);
+    background: radial-gradient(circle, rgba(143,90,212,1) 0%, rgba(32,60,149,1) 52%, rgba(99,61,235,1) 78%);
+}
+

@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+  
+	.mini {
+		width: 90%;
+	}
+
+
+	html {
+		margin: 0;
+	}
+
+	body {
+		background-color: rgb(15, 25, 51);
+		font-family: "Work Sans", sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+
+	#headBlock {
+		padding: 40px;
+		background: rgb(17, 25, 77);
+		text-align: center;
+		border-bottom: 3px solid white;
+	}
+
+	#headBlockFoot {
+		color: rgba(255, 255, 255, 0.0);
+		margin: 0;
+		background: rgb(15, 25, 51);
+		text-align: center;
+		border-bottom: 3px solid white;
+	}
+
+	#title-date {
+		font-size: 0em;
+		opacity: 0.0;
+		animation: scaleDate 0.5s forwards;
+		animation-delay: 0.5s;
+	}
+
+	@keyframes scaleDate {
+		100% {
+			font-size: 2rem;
+			opacity: 1;
+		}
+	}
+
+	h1 {
+		color: white;
+		font-size: 1rem;
+		animation: scale 1s forwards;
+	}
+
+	h2 {
+		color: rgb(235, 235, 235);
+		font-size: 3rem;
+		margin: 0px;
+	}
+
+	.section-title {
+		color:rgb(219, 219, 219);
+		font-size:5rem;
+		margin-top:20px;
+		text-align:center;
+		opacity:0;
+		animation: revealChallenges 1s forwards;
+		animation-delay:0.6s;
+	}
+
+	@keyframes scale {
+		55% {
+			font-size: 7.9rem;
+		}
+
+		100% {
+			font-size: 7.5rem;
+		}
+	}
+
+	#score {
+		margin-top: 20px;
+	}
+
+	#date {
+		font-size: 6rem;
+		padding: 2px;
+		margin: 0;
+	}
+
+	#logo {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width: 20%;
+		height: 20%;
+		opacity: 0%;
+		margin-top: 0px;
+		animation: scaleLogo 1s forwards;
+	}
+
+	@keyframes scaleLogo {
+		50% {
+			width: 5%;
+			height: 5%;
+			opacity: 0.3
+		}
+
+		100% {
+			width: 5%;
+			height: 5%;
+			opacity: 1
+		}
+	}
+
+	.wrapper {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 50px;
+		grid-auto-rows: 130px;
+		padding: 50px;
+	}
+
+	.challenge {
+		text-align: center;
+		color: white;
+		background: rgb(0, 255, 104);
+		background: linear-gradient(347deg, rgba(0, 255, 104, 1) 0%, rgba(0, 18, 141, 1) 100%);
+		border-radius: 20px;
+		padding: 5px;
+    	animation: revealChallenges 1s forwards;
+    	animation-delay: 0.6s;
+    	opacity:0.0;
+		border: 5px solid rgb(21, 38, 80);
+	}
+
+	@keyframes revealChallenges {
+		100% {
+			opacity: 1;
+		}
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+  h3 {
+    font-size:1.4rem;
+  }
+
+  h4 {
+    color:rgb(236, 236, 236);
+    font-size:0.8rem;
+  }
+
+  h5 {
+	position:absolute;
+	margin:0;
+	background:black;
+	border-radius:5px;
+  }
+
+  .section-sub {
+	text-align:center;
+	font-size:1.5rem;
+	color:lightgray;
+	animation: revealChallenges 1s forwards;
+	animation-delay: 0.6s;
+	opacity:0.0;
+  }
+
+  #stat-panel {
+	width:50%;
+    margin:auto;
+	margin-top:50px;
+	margin-bottom:50px;
+	border-radius:20px;
+	background: rgb(17, 25, 77);
+	border:3px solid rgb(0, 255, 104);
+	padding:1%;
+	text-align:center;
+	color:gray;
+  }
+
+  .stat-rank {
+	width:15%;
+	margin:auto;
+	border-radius:20px;
+	color:black;
+	animation: revealChallenges 1s forwards;
+	animation-delay: 0.6s;
+	opacity:0.0;
+  }
+
+@media (max-width: 1000px) {
+
+	.wrapper {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 50px;
+		grid-auto-rows: 130px;
+		padding: 50px;
+	}
+
+	@keyframes scaleLogo {
+		50% {
+			width: 5%;
+			height: 5%;
+			opacity: 0.3
+		}
+
+		100% {
+			width: 15%;
+			height: 15%;
+			opacity: 1
+		}
+	}
+
+	h2 {
+		font-size:1.7rem;
+	}
+
+	@keyframes scale {
+		55% {
+			font-size: 2.7rem;
+		}
+
+		100% {
+			font-size: 2.65rem;
+		}
+	}
+
+	.section-title {
+		font-size:2rem;
+	}
+}

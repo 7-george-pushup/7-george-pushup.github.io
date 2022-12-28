@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George | Endurance Session</title>
+    <link rel="stylesheet" href="./CSS/challenge-style.css">
+    <link rel="stylesheet" href="./CSS/thumbnail-gradients.css">
+    <link rel="stylesheet" href="./CSS/difficulty-styles.css">
+</head>
+    <body>
+        <div id="dynamic-headBlock" class="headBlock">
+            <h1 id="title-name">Challenge Name</h1>
+            <h2 id="title-form">Challenge Form</h2>
+        </div>
+        <div id="headBlockFoot">
+            <h2 id="notice">Click the timer to start, and again upon failure.</h2>
+        </div>
+    
+        <a id="start" onclick="start()">
+            <h1 id="stopwatch">Start</h1>
+        </a>
+    
+        <div id="stats">
+            <div id="percentage-container">
+                <div id="client" class="percentage">You</div>
+                <div id="point0001" class="X percentage">Top .0001% Of People</div>
+                <div id="point001" class="S percentage">Top .001% Of People</div>
+                <div id="top1" class="A percentage">Top 1% Of People</div>
+                <div id="top5" class="B percentage">Top 5% Of People</div>
+                <div id="avg" class="C percentage">Average American</div>
+            </div>
+        </div>
+    
+        <a href="index.html">
+            <div id="footer">
+                <h5>Select another challenge.</h5>
+            </div>
+        </a>
+        <script src="challenge.js"></script>
+    </body>
+</html>
